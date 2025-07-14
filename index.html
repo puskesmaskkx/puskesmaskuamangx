@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Puskesmas Kuamang Kuning X</title>
+  <style>
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            color: #333;
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            display: block;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+            margin: 0.25rem;
+        }
+
+        .dropdown-link:hover {
+            background: #f0f8ff;
+            color: #2c5aa0;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 140px;
+            min-height: calc(100vh - 140px);
+        }
+
+        /* Hero Section */
+        .hero {
+    position: relative;
+    background: url('foto_bersama.jpeg') no-repeat center/cover;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* transparansi hitam */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Kepala Puskesmas Section */
+        .kepala-section {
+            background: white;
+            padding: 4rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .kepala-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .kepala-photo {
+            width: 500px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .kepala-info h2 {
+            color: #2c5aa0;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .kepala-info h3 {
+            color: #666;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .kepala-info p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Services Grid */
+        .services {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .services-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #2c5aa0;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-top: 4px solid #2c5aa0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3d72);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            color: #2c5aa0;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .img-center {
+            display: block;
+            margin: 0 auto;
+            max-width: 50%;     /* Agar ukuran gambar tetap responsif */
+            border-radius: 3px;  /* Opsional, agar sudut gambar sedikit membulat */
+            }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .content-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #2c5aa0;
+        }
+
+        .content-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1e3d72 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .kepala-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-content {
+                margin-top: 180px;
+            }
+        }
+
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c5aa0;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2c5aa0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #2c5aa0, #1e3d72);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.3);
+        }
+
+        /* News Cards */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        /* Organization Chart */
+        .org-chart {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .org-level {
+            margin: 2rem 0;
+        }
+
+        .org-box {
+            display: inline-block;
+            background: white;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 3px solid #2c5aa0;
+            min-width: 200px;
+        }
+
+        .org-box.head {
+            background: linear-gradient(135deg, #2c5aa0, #1e3d72);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #2c5aa0;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2c5aa0;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+  </style>
+ </head>
+ <body>
+  <!-- Header -->
+  <header class="header">
+   <div class="header-content">
+    <div class="logo">
+     <div class="logo-photo">
+     </div>
+     <img alt="Logo Puskesmas Kuamang Kuning X" src="Logo_Puskesmas.jpg"/>
+     <div class="logo-text">
+      <h1>Puskesmas Kuamang Kuning X</h1>
+      <p>Melayani Dengan Hati</p>
+     </div>
+    </div>
+   </div>
+   <nav class="nav">
+    <div class="nav-content">
+     <ul class="nav-menu">
+      <li class="nav-item">
+       <a class="nav-link active" href="#" onclick="showPage('beranda')">Beranda</a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">Profil</a>
+       <div class="dropdown">
+        <a class="dropdown-link" href="#" onclick="showPage('visi-misi')">Visi &amp; Misi</a>
+        <a class="dropdown-link" href="#" onclick="showPage('struktur')">Struktur Organisasi</a>
+        <a class="dropdown-link" href="#" onclick="showPage('pegawai')">Pegawai &amp; Karyawan</a>
+        <a class="dropdown-link" href="#" onclick="showPage('demografi')">Demografi/Penduduk</a>
+        <a class="dropdown-link" href="#" onclick="showPage('sosial-budaya')">Sosial Budaya &amp; Ekonomi
+        </a>
+       </div>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#">
+        Layanan Publik
+       </a>
+       <div class="dropdown">
+        <a class="dropdown-link" href="#" onclick="showPage('poli-umum')">
+         Poli Umum
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('poli-kia')">
+         Poli KIA
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('poli-gigi')">
+         Poli Gigi
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('laboratorium')">
+         Laboratorium
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('lansia')">
+         Lansia
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('farmasi')">
+         Farmasi
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('igd')">
+         IGD 24 Jam
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('gizi')">Gizi</a>
+       </div>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#" >
+        Layanan Informasi
+       </a>
+       <div class="dropdown">
+        <a class="dropdown-link" href="#" onclick="showPage('pengaduan')">
+         Layanan Pengaduan
+        </a>
+        <a class="dropdown-link" href="#" onclick="showPage('pendaftaran')">
+         Pendaftaran Online
+        </a>
+        <a href="#" class="dropdown-link" onclick="showPage('bukti-bayar')">
+        Bukti Bayar Rawat Jalan</a>
+       </div>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#" onclick="showPage('berita')">
+        Berita
+       </a>
+      </li>
+      <li class="nav-item">
+       <a class="nav-link" href="#" onclick="showPage('kontak')">
+        Kontak
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+  </header>
+  <!-- Main Content -->
+  <main class="main-content">
+   <!-- Beranda Page -->
+   <div class="page active" id="beranda">
+    <section class="hero">
+     <div class="hero-content">
+      <h1>
+       Selamat Datang di Puskesmas Kuamang Kuning X
+      </h1>
+      <p>
+       Memberikan pelayanan kesehatan terbaik untuk masyarakat dengan teknologi modern dan tenaga medis profesional
+      </p>
+     </div>
+    </section>
+    <section class="kepala-section">
+                <div class="kepala-content">
+                    <div class="kepala-photo">
+                        <img src="kapus.jpeg" alt="Foto Kepala Puskesmas Kuamang Kuning X, dr. Silviana Sari" class="kepala-photo" />
+                    </div>
+                    <div class="kepala-info">
+                        <h2>dr. Silviana Sari</h2>
+                        <h3>Kepala Puskesmas Kuamang Kuning X</h3>
+                        <p>Dengan pengalaman lebih dari 5 tahun di bidang kesehatan masyarakat, dr. Silviana Sari memimpin Puskesmas Kuamang Kuning X dengan komitmen penuh untuk memberikan pelayanan kesehatan yang berkualitas dan merata bagi seluruh masyarakat. 
+                            Beliau berdedikasi untuk terus meningkatkan kualitas pelayanan dan fasilitas kesehatan di wilayah kerja Puskesmas Kuamang Kuning X.</p>
+                    </div>
+                </div>
+            </section>
+    <section class="services">
+     <div class="services-content">
+      <h2 class="section-title">
+       Layanan Unggulan Kami
+      </h2>
+      <div class="services-grid">
+       <div class="service-card">
+        <div class="service-icon">
+         🏥
+        </div>
+        <h3>
+         Poli Umum
+        </h3>
+        <p>
+         Pelayanan kesehatan umum dengan dokter berpengalaman
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">
+         👶
+        </div>
+        <h3>
+         Poli KIA
+        </h3>
+        <p>
+         Kesehatan Ibu dan Anak dengan fasilitas lengkap
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">
+         🦷
+        </div>
+        <h3>
+         Poli Gigi
+        </h3>
+        <p>
+         Perawatan gigi dan mulut yang komprehensif
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">
+         🔬
+        </div>
+        <h3>
+         Laboratorium
+        </h3>
+        <p>
+         Pemeriksaan laboratorium dengan teknologi modern
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">
+         👴
+        </div>
+        <h3>
+         Pelayanan Lansia
+        </h3>
+        <p>
+         Perawatan khusus untuk lanjut usia
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">
+         🚨
+        </div>
+        <h3>
+         IGD 24 Jam
+        </h3>
+        <p>
+         Instalasi Gawat Darurat siap melayani 24 jam
+        </p>
+       </div>
+       <div class="service-card">
+        <div class="service-icon">🥗</div>
+        <h3>Gizi</h3>
+        <p>Layanan konsultasi dan edukasi gizi seimbang untuk semua kelompok usia</p>
+        </div>
+      </div>
+      <!-- Galeri Kegiatan -->
+<section class="gallery-section" style="margin-top: 3rem;">
+  <h2>Galeri Kegiatan</h2>
+  <div class="gallery-grid" style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;">
+    <img src="kegiatan_1.jpg" alt="Kegiatan 1" style="max-width: 400px; border-radius: 8px;">
+    <img src="kegiatan_2.jpeg" alt="Kegiatan 2" style="max-width: 250px; border-radius: 8px;">
+    <img src="kegiatan_3.jpeg" alt="Kegiatan 3" style="max-width: 250px; border-radius: 8px;">
+  </div>
+</section>
+     </div>
+    </section>
+   </div>
+   <!-- Profil Page -->
+   <!-- Visi Misi Page -->
+   <div class="page" id="visi-misi">
+    <div class="content-section">
+     <h1 class="page-title">
+      Visi &amp; Misi
+     </h1>
+     <div class="content-grid">
+      <div class="content-card">
+       <h3>Visi</h3>
+       <p>
+        "Menjadi Pusat Pelayanan Kesehatan Yang Bermutu Mandiri dan Berorientasi Pada Keluarga Dan Masyarakat"
+       </p>
+      </div>
+      <div class="content-card">
+       <h3>Misi</h3>
+       <ul style="margin-left: 1rem;">
+        <li>Menyelenggarakan pelayanan kesehatan yang paripurna, bermutu, manusiawi, serta terjangkau oleh seluruh masyarakat</li>
+        <li>Meningkatkan profesionalisme SDM dalam pelaksanaan pelayanan kesehatan</li>
+        <li>Meningkatkan pembnaan peran serta masyarakat dalam bidang kesehatan sehingga masyarakat bisa mandiri</li>
+        <li>Menjalin kemitraan dengan semua pihak yang terkait dalam pelayanan dalam pengembangan kesehatan masyarakat</li>
+        <li>Meningkatkan kesejahteraan semua pihak yang terkait dalam pelayanan kesehatan</li>
+        <li>Menjadikan Puskesmas sebagai pusat pengembangan pebagunan kesehatan masyarakat</li>
+       </ul>
+      </div>
+     </div>
+    </div>
+   </div>
+   <!-- Struktur Organisasi Page -->
+   <div id="struktur" class="page">
+    <div class="content-section">
+        <h1 class="page-title">Struktur Organisasi</h1>
+        <div class="content-card" style="text-align:center;">
+            <img src="so.JPG" alt="Struktur Organisasi Puskesmas Kuamang Kuning X" style="max-width:100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+            <p style="margin-top:1rem; color:#555;">Struktur organisasi Puskesmas Kuamang Kuning X menunjukkan susunan jabatan dan penanggung jawab tiap bidang pelayanan.</p>
+        </div>
+    </div>
+</div>
+   <!-- Pegawai Page -->
+   <div class="page" id="pegawai">
+    <div class="content-section">
+     <h1 class="page-title">
+      Pegawai &amp; Karyawan
+     </h1>
+     <div class="stats-grid">
+      <div class="stat-card">
+       <span class="stat-number">
+        3
+       </span>
+       <div class="stat-label">
+        Dokter
+       </div>
+      </div>
+      <div class="stat-card">
+       <span class="stat-number">
+        9
+       </span>
+       <div class="stat-label">
+        Perawat
+       </div>
+      </div>
+      <div class="stat-card">
+       <span class="stat-number">
+        11
+       </span>
+       <div class="stat-label">
+        Bidan
+       </div>
+      </div>
+      <div class="stat-card">
+       <span class="stat-number">
+        9
+       </span>
+       <div class="stat-label">
+        Tenaga Teknis
+       </div>
+      </div>
+      <div class="stat-card">
+      <span class="stat-number">
+       3
+       </span>
+       <div class="stat-label">
+        Tenaga Pendukung
+       </div>
+      </div>
+      </div>
+     <img alt="Foto Pegawai Puskesmas" src="pegawai.jpg" style="display:block; margin:2rem auto 1rem auto; max-width:40%; border-radius:10px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"/>
+     <p style="margin-top: 1rem; font-size: 1rem; color: #555; padding-left: 2rem;">
+      Tenaga kesehatan yang bertugas di Puskesmas Kuamang Kuning X pada tahun 2024 berjumlah 36 orang. Dari jumlah tersebut, sebanyak 15 orang PNS, 8 orang tenaga Non-PNS (kontrak BLUD), 8 orang TKS, dan 5 orang P3K.
+     </p>
+    </div>
+   </div>
+   <!-- Demografi / Penduduk Page -->
+   <div class="page" id="demografi">
+    <div class="content-section">
+     <h1 class="page-title">
+      Demografi / Penduduk
+     </h1>
+     <div class="content-card">
+      <h3>
+       Jumlah Penduduk
+      </h3>
+      <p>
+       Penduduk di wilayah kerja Puskesmas Kuamang Kuning X berdasarkan Pusat data dan Informasi Kementerian Kesehatan Indonesia tahun 2024 berjumlah
+       <strong>
+        10.076 jiwa
+       </strong>
+       , terdiri dari penduduk asli dan pendatang. Sejumlah orang di antara tercatat sebagai Keluarga Miskin (Gakin) dan telah mendapatkan penjaminan pelayanan kesehatan bagi masyarakat miskin dalam bentuk Jamkesmas dan Jamkesda.
+      </p>
+      <h3 style="margin-top: 2rem;">
+       Distribusi Penduduk
+      </h3>
+      <ul style="margin-left: 1rem;">
+       <li>
+        Gapura Suci : 3.852 jiwa
+       </li>
+       <li>
+        Mulia Bhakti : 2.454 jiwa
+       </li>
+       <li>
+        Mulia Jaya : 1.856 jiwa
+       </li>
+       <li>
+        Cilodang : 1.914 jiwa
+       </li>
+      </ul>
+      <h3 style="margin-top: 2rem;">
+       Jumlah Penduduk dan Wilayah Pelayanan
+      </h3>
+      <p>
+       Total Penduduk (Jiwa) : 10.076 Jiwa
+       <br/>
+       Wilayah pelayanan meliputi 4 kelurahan, dengan jangkauan pelayanan melalui posyandu dan kegiatan keliling Puskesmas.
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- Sosial Budaya & Ekonomi Page -->
+   <div class="page" id="sosial-budaya">
+    <div class="content-section">
+     <h1 class="page-title">
+      Sosial Budaya &amp; Ekonomi
+     </h1>
+     <div class="content-card">
+      <h3>
+       Karakteristik Sosial Budaya
+      </h3>
+      <p>
+       Masyarakat Kecamatan Pelepat memiliki latar belakang budaya yang beragam, terdiri dari suku Melayu, Jawa, Sunda, Minang, dan Batak. Kegiatan gotong royong, musyawarah desa, serta adat istiadat lokal masih sangat kuat dijalankan.
+      </p>
+      <h3 style="margin-top: 2rem;">
+       Kondisi Ekonomi
+      </h3>
+      <p>
+       Sebagian besar masyarakat bekerja di sektor pertanian, perkebunan sawit, dan peternakan. Sebagian lainnya bergerak di sektor informal seperti UMKM dan perdagangan kecil.
+      </p>
+      <h3 style="margin-top: 2rem;">
+       Akses Kesehatan
+      </h3>
+      <p>
+       Secara umum, akses terhadap layanan kesehatan sudah cukup baik.
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- Layanan Umum Page -->
+   <!-- Poli Umum Page -->
+   <div class="page" id="poli-umum">
+    <div class="content-section">
+     <h1 class="page-title">
+      Poli Umum
+     </h1>
+     <div class="content-card">
+      <p>
+       Poli Umum memberikan layanan pemeriksaan dan pengobatan penyakit umum seperti demam, batuk, flu, dan lainnya. Ditangani oleh dokter umum berpengalaman dan didukung fasilitas yang memadai.
+      </p>
+      <img src="poli_umum.png" alt="Poli Umum" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- Poli KIA Page -->
+   <div class="page" id="poli-kia">
+    <div class="content-section">
+     <h1 class="page-title">
+      Poli Kesehatan Ibu &amp; Anak (KIA)
+     </h1>
+     <div class="content-card">
+      <p>
+       Poli KIA fokus pada pelayanan kesehatan ibu hamil, bersalin, nifas, bayi dan balita. Kegiatan seperti imunisasi, konseling gizi anak, dan kelas ibu hamil dilaksanakan secara rutin.
+      </p>
+      <img src="poli_kia.png" alt="Poli KIA" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- Poli Gigi Page -->
+   <div class="page" id="poli-gigi">
+    <div class="content-section">
+     <h1 class="page-title">
+      Poli Gigi
+     </h1>
+     <div class="content-card">
+      <p>
+       Layanan kesehatan gigi dan mulut seperti pemeriksaan gigi, pembersihan karang, pencabutan, penambalan, dan penyuluhan kebersihan gigi diberikan oleh dokter gigi profesional.
+      </p>
+      <img src="poli_gigi.png" alt="Poli Gigi" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- Laboratorium Page -->
+   <div class="page" id="laboratorium">
+    <div class="content-section">
+     <h1 class="page-title">
+      Laboratorium
+     </h1>
+     <div class="content-card">
+      <p>
+       Fasilitas laboratorium mendukung diagnosis penyakit melalui pemeriksaan darah, urine, dan feses. Dilengkapi alat modern dan tenaga analis terlatih.
+      </p>
+      <img src="laboratorium.png" alt="laboratorium" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- Pelayanan Lansia Page -->
+   <div class="page" id="lansia">
+    <div class="content-section">
+     <h1 class="page-title">
+      Pelayanan Lansia
+     </h1>
+     <div class="content-card">
+      <p>
+       Layanan kesehatan khusus bagi lansia meliputi pemeriksaan kesehatan rutin, senam lansia, pemantauan penyakit kronis, dan kegiatan sosial yang meningkatkan kualitas hidup lansia.
+      </p>
+      <img src="layanan_lansia.png" alt="layanan lansia" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- Farmasi Page -->
+   <div class="page" id="farmasi">
+    <div class="content-section">
+     <h1 class="page-title">
+      Pelayanan Farmasi
+     </h1>
+     <div class="content-card">
+      <p>
+       Pelayanan farmasi menyediakan obat-obatan yang sesuai dengan resep dokter, edukasi penggunaan obat, serta penyimpanan obat sesuai standar kefarmasian.
+      </p>
+      <img src="farmasi.png" alt="farmasi" class="img-center">
+     </div>
+    </div>
+   </div>
+   <!-- IGD 24 Jam Page -->
+   <div class="page" id="igd">
+    <div class="content-section">
+     <h1 class="page-title">
+      IGD 24 Jam
+     </h1>
+     <div class="content-card">
+      <p>
+       Instalasi Gawat Darurat (IGD) beroperasi 24 jam setiap hari untuk menangani pasien dalam kondisi darurat. Didukung oleh tim medis sigap dan peralatan lengkap untuk pertolongan pertama.
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- Layanan Gizi Page -->
+    <div class="page" id="gizi">
+  <div class="content-section">
+    <h1 class="page-title">Pelayanan Gizi</h1>
+    <div class="content-card">
+      <p>
+        Unit gizi memberikan pelayanan konsultasi, penilaian status gizi, pemantauan balita gizi buruk, serta edukasi gizi untuk ibu hamil, anak-anak, dan masyarakat umum. Kegiatan dilakukan melalui posyandu dan klinik gizi.
+      </p>
+      <img src="gizi.png" alt="Pelayanan Gizi" class="img-center" />
+    </div>
+  </div>
+</div>
+   <!-- Layanan Pengaduan Page -->
+   <div class="page" id="pengaduan">
+    <div class="content-section">
+     <h1 class="page-title">
+      Layanan Pengaduan
+     </h1>
+     <div class="form-container">
+      <form>
+       <div class="form-group">
+        <label for="nama-pengadu">
+         Nama Lengkap
+        </label>
+        <input id="nama-pengadu" name="nama-pengadu" required="" type="text"/>
+       </div>
+       <div class="form-group">
+        <label for="kontak-pengadu">
+         Kontak (HP/Email)
+        </label>
+        <input id="kontak-pengadu" name="kontak-pengadu" required="" type="text"/>
+       </div>
+       <div class="form-group">
+        <label for="jenis-pengaduan">
+         Jenis Pengaduan
+        </label>
+        <select id="jenis-pengaduan" name="jenis-pengaduan">
+         <option>
+          Pilih Jenis
+         </option>
+         <option>
+          Pelayanan
+         </option>
+         <option>
+          Sumber Daya Manusia
+         </option>
+         <option>
+          Fasilitas
+         </option>
+         <option>
+          Lainnya
+         </option>
+        </select>
+       </div>
+       <div class="form-group">
+        <label for="isi-pengaduan">
+         Isi Pengaduan
+        </label>
+        <textarea id="isi-pengaduan" name="isi-pengaduan" required="" rows="5"></textarea>
+       </div>
+       <button class="btn-primary" type="submit">
+        Kirim Pengaduan
+       </button>
+      </form>
+     </div>
+    </div>
+   </div>
+   <!-- Pendaftaran Online Page -->
+   <div class="page" id="pendaftaran">
+  <div class="content-section">
+    <h1 class="page-title">Pendaftaran Online</h1>
+    <div class="content-card">
+      <p style="margin-bottom: 1rem;">
+        <strong>• Bagi Peserta BPJS</strong> bisa melakukan pendaftaran melalui Aplikasi <em>Mobile JKN</em> yang dapat diunduh melalui Google Play Store atau App Store.
+      </p>
+      <p>
+        <strong>• Pasien Umum (Tanpa Kartu)</strong> dapat mendaftar melalui WhatsApp ke nomor berikut:<br>
+        <strong>0852-1259-9949</strong>
+      </p>
+    </div>
+  </div>
+</div>
+   <!-- Bukti Bayar Page -->
+<div id="bukti-bayar" class="page">
+    <div class="content-section">
+        <h1 class="page-title">Bukti Bayar Pelayanan Rawat Jalan</h1>
+        <div class="content-card" style="text-align:center;">
+            <img src="bukti_bayar.jpg" alt="Contoh Bukti Bayar Rawat Jalan" style="max-width:80%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); margin-bottom:1rem;">
+            <p>Berikut adalah contoh bukti pembayaran resmi dari pelayanan rawat jalan di Puskesmas Kuamang Kuning X. Dokumen ini diterbitkan oleh bagian administrasi sebagai tanda sah atas pelayanan yang diterima.</p>
+            <p>Jika Anda membutuhkan salinan asli atau mengalami kendala terkait administrasi, silakan hubungi bagian Tata Usaha.</p>
+        </div>
+    </div>
+</div>
+   <!-- Berita Page -->
+   <div class="page" id="berita">
+    <div class="content-section">
+     <h1 class="page-title">
+      Berita &amp; Informasi
+     </h1>
+     <div class="news-grid">
+      <div class="news-card">
+  <div class="news-image">
+    📅 02 Juli 2025
+  </div>
+  <div class="news-content">
+    <div class="news-date">Dipublikasikan oleh Admin</div>
+    <h3>Lima Langkah untuk Pencegahan Stunting dengan ABCDE</h3>
+    <img src="stunting.jpg" alt="Edukasi Pencegahan Stunting" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <p>
+      Stunting adalah kondisi gagal tumbuh pada anak akibat kekurangan gizi kronis. UPT Puskesmas Kuamang Kuning X memberikan edukasi lima langkah penting untuk mencegah stunting:
+    </p>
+    <ol style="margin-left: 1.2rem; margin-top: 0.5rem;">
+      <li>Aktif minum tablet tambah darah selama hamil, sekitar 130 tab.</li>
+      <li>Bumil periksa kehamilan minimal 6x, 2x dengan USG.</li>
+      <li>Cukupi protein hewani untuk bayi diatas 6 bulan.</li>
+      <li>Datang ke posyandu untuk memandu tumbuh kembang balita.</li>
+      <li>Ekslusif ASI selama 6 bulan dilanjutkan 2 tahun.</li>
+    </ol>
+    <p style="margin-top: 1rem;">
+      Edukasi ini diberikan secara langsung oleh petugas kesehatan dalam kegiatan Posyandu dan kunjungan rumah.
+    </p>
+  </div>
+</div>
+      <div class="news-card">
+  <div class="news-image">
+    📅 03 Juli 2025
+  </div>
+  <div class="news-content">
+    <div class="news-date">Dipublikasikan oleh Admin</div>
+    <h3>Kegiatan Safari KB, IVA Test, dan Sadanis</h3>
+    <img src="kegiatan_kb.jpg" alt="Kegiatan KB dan IVA Test" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <p>
+      UPT Puskesmas Kuamang Kuning X melaksanakan kegiatan Safari KB, IVA Test, dan Sadanis sebagai bentuk pelayanan kesehatan proaktif kepada masyarakat. 
+      Kegiatan ini menyasar wanita usia subur untuk meningkatkan kesadaran pentingnya pemeriksaan kesehatan reproduksi secara rutin. 
+      Bekerja sama dengan BKKBN dan Dinas Kesehatan, kegiatan ini dilaksanakan di UPT puskesmas kuamang kuning x.
+    </p>
+  </div>
+</div>
+      <div class="news-card">
+  <div class="news-image">
+    📅 07 Februari 2025
+  </div>
+  <div class="news-content">
+    <div class="news-date">Dipublikasikan oleh Admin</div>
+    <h3>Pemeriksaan Kesehatan Gratis</h3>
+    <img src="pemeriksaan_gratis.jpg" alt="Cek Kesehatan Gratis" style="width: 100%; border-radius: 8px; margin: 1rem 0;">
+    <p>
+      UPT Puskesmas Kuamang Kuning X melaksanakan <strong>program cek kesehatan gratis</strong> bagi masyarakat sesuai tanggal lahir masing-masing, 
+      sebagai bagian dari <strong>program prioritas Pemerintah Republik Indonesia</strong di bawah kepemimpinan Presiden Prabowo Subianto.
+    </p>
+    <p style="margin-top: 1rem;">
+      Layanan ini mencakup pemeriksaan tekanan darah, kadar gula, asam urat, kolesterol, serta konsultasi kesehatan dasar secara gratis. 
+      Masyarakat dapat datang ke Puskesmas pada tanggal ulang tahun mereka untuk mendapatkan pelayanan tanpa dipungut biaya.
+    </p>
+    <p style="margin-top: 1rem;">
+      Program ini diharapkan dapat meningkatkan kesadaran masyarakat terhadap pentingnya deteksi dini dan menjaga kesehatan secara berkala.
+    </p>
+  </div>
+</div>
+
+     </div>
+    </div>
+   </div>
+   <!-- Kontak Page -->
+   <div class="page" id="kontak">
+    <div class="content-section">
+     <h1 class="page-title">
+      Kontak Kami
+     </h1>
+     <div class="content-card">
+      <p>
+       <strong>
+        Alamat:
+       </strong>
+       <br/>
+       Jl. Bhakti Husada, Dusun Mulia Bhakti, Kec. Pelepat, Kab. Bungo, Jambi
+      </p>
+      <p>
+       <strong>
+        No. Telepon:
+       </strong>
+       <br/>
+       (+62) 85212599949
+      </p>
+      <p>
+       <strong>
+        Email:
+       </strong>
+       <br/>
+       puskesmaskuamangkuning10@gmail.com
+      </p>
+      <p>
+       <strong>
+        Jam Operasional:
+       </strong>
+       <br/>
+       Senin – Kamis : 07.30 – 14.00 WIB
+       <br/>
+       Jum'at : 07.30 – 11.00 WIB
+       <br/>
+       Sabtu : 07.30 – 14.00 WIB
+       <br/>
+       IGD 24 Jam
+      </p>
+      <p>
+  <strong>Media Sosial:</strong><br/>
+  <a href="https://www.facebook.com/puskesmas.kuamang.kuning.x?mibextid=ZbWKwL" target="_blank">Facebook</a> |
+  <a href="https://www.instagram.com/pkmkuamangkuningx?igsh=MWF1d3RrcTg0Z3ZteQ==" target="_blank">Instagram</a> |
+  <a href="https://www.tiktok.com/@pkm.kuamang.kunin?_t=ZS-8y02eNoEYiI&_r=1" target="_blank">TikTok</a>
+</p>
+
+     </div>
+    </div>
+   </div>
+  </main>
+  <script>
+   // Tampilkan halaman berdasarkan ID
+    function showPage(id) {
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        const target = document.getElementById(id);
+        if (target) target.classList.add('active');
+
+        // Highlight menu aktif
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const activeLink = [...document.querySelectorAll('.nav-link, .dropdown-link')].find(link =>
+            link.getAttribute('onclick')?.includes(id)
+        );
+        if (activeLink) activeLink.classList.add('active');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Konfirmasi form pengaduan
+    document.querySelector('#pengaduan form')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Terima kasih, pengaduan Anda telah kami terima.');
+        this.reset();
+    });
+
+  </script>
+ </body>
+</html>
